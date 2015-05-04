@@ -1,0 +1,7 @@
+movie_song.users:
+  path: '/list-users'
+  defaults:
+    _controller: 'Drupal\movie_song\Controller\MovieSong::content'
+    _title: 'List Users'
+  requirements:
+    _permission: 'access content'

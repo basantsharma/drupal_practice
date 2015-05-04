@@ -1,0 +1,6 @@
+name: Movie song moudle
+description: Creates a page to list all users with filters.
+package: Custom
+type: module
+version: 1.0
+core: 8.x

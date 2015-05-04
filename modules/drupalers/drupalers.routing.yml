@@ -1,0 +1,7 @@
+drupalers.import:
+  path: '/import-drupalers'
+  defaults:
+    _form: '\Drupal\drupalers\Form\DrupalersRange'
+    _title: 'Import Drupalers'
+  requirements:
+    _permission: 'access content'
