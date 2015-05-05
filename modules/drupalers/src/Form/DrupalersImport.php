@@ -12,6 +12,7 @@ function import_drupalers($init_id, $final_id, &$context) {
       create_node_drupalers($data);
     }
   }
+  update_max_min_uid($context['sandbox']['current_id']);
   $context['sandbox']['current_id']++;
   $context['sandbox']['progress']++;
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
@@ -171,7 +172,6 @@ function create_node_drupalers($data) {
     $node['field_experience'] = $data['experience'];
   }
   if ($create) {
-    update_max_min_uid($data['uid']);
     $node = entity_create('node', $node);
     $node->save();
   }
