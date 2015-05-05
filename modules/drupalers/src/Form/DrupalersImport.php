@@ -15,6 +15,10 @@ function import_drupalers($init_id, $final_id, &$context) {
   update_max_min_uid($context['sandbox']['current_id']);
   $context['sandbox']['current_id']++;
   $context['sandbox']['progress']++;
+  print $context['sandbox']['current_id'];
+  print $context['sandbox']['progress'];
+  print $context['sandbox']['max'];
+  print '------';
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
   }

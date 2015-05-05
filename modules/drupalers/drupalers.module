@@ -1,0 +1,17 @@
+<?php
+
+function demo_drush_print_statement($init_id, $final_id) {
+  $batch = array(
+    'title' => t('Importing'),
+    'operations' => array(
+      array('import_drupalers', array($init_id, $final_id)),
+    ),
+    'finished' => 'drupalers_finished_callback',
+    'file' => drupal_get_path('module', 'drupalers') . '/src/Form/DrupalersImport.php',
+
+  );
+  batch_set($batch);
+  $batch =& batch_get();
+  $batch['progressive'] = FALSE;
+  drush_backend_batch_process();
+}
