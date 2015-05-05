@@ -171,7 +171,23 @@ function create_node_drupalers($data) {
     $node['field_experience'] = $data['experience'];
   }
   if ($create) {
+    update_max_min_uid($data['uid']);
     $node = entity_create('node', $node);
     $node->save();
+  }
+}
+
+
+function update_max_min_uid() {
+  $config = \Drupal::service('config.factory')->getEditable('pcp.configuration');
+  $min_uid = $config->get('min_drupal_uid');
+  $max_uid = $config->get('max_drupal_uid');
+  if ($uid > $max_uid) {
+    $config->set('max_drupal_uid', $uid)
+      ->save();
+  }
+  if ($uid < $min_uid) {
+    $config->set('min_drupal_uid', $uid)
+      ->save();
   }
 }

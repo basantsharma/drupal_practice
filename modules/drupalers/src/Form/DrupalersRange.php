@@ -17,6 +17,11 @@ class DrupalersRange extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Create a $form API array.
+    $config = \Drupal::service('config.factory')->getEditable('pcp.configuration');
+    $min_uid = $config->get('min_drupal_uid');
+    $max_uid = $config->get('max_drupal_uid');
+    $form['processed_uid'] = array(
+      '#markup' => 'Processed uids - ' . $min_uid . ' - ' . $max_id);
     $form['init_id'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Starting Id'),
