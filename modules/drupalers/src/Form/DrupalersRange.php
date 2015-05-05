@@ -21,7 +21,7 @@ class DrupalersRange extends FormBase {
     $min_uid = $config->get('min_drupal_uid');
     $max_uid = $config->get('max_drupal_uid');
     $form['processed_uid'] = array(
-      '#markup' => 'Processed uids - ' . $min_uid . ' - ' . $max_id);
+      '#markup' => 'Processed uids - ' . $min_uid . ' - ' . $max_uid);
     $form['init_id'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Starting Id'),
