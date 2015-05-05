@@ -178,7 +178,7 @@ function create_node_drupalers($data) {
 }
 
 
-function update_max_min_uid() {
+function update_max_min_uid($uid) {
   $config = \Drupal::service('config.factory')->getEditable('pcp.configuration');
   $min_uid = $config->get('min_drupal_uid');
   $max_uid = $config->get('max_drupal_uid');
